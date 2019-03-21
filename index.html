@@ -7,23 +7,42 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>JS-in-the-browser</title>
   <style>
+    body {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+    }
+
     #square {
       width: 100px;
       height: 100px;
+      background-color: brown;
+    }
+
+    #click {
+      width: 100px;
+      height: 50px;
       background-color: brown;
     }
   </style>
 </head>
 
 <body>
-  <div class="movable" id="square"></div>
+  <h1>eventListeners</h1>
+  <div class="movable" id="square"></div> Hover-over Me!
   <span class="movable" id="tooltip"></span>
+  <button class="clickable" id="click">Click Me!</button>
   <script>
     const square = document.getElementById('square');
     const randomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
     square.addEventListener('mouseover', () => {
       square.style.backgroundColor = randomColor();
+    });
+    const click = document.getElementById('click');
+    const newColor = () => `#${Math.floor(Math.random() * 18000000).toString(18)}`;
+    click.addEventListener('click', () => {
+      click.style.backgroundColor = newColor();
     })
   </script>
 
